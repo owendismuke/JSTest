@@ -1,8 +1,9 @@
-angular.module( 'sample', [
+angular.module( 'owen', [
   'auth0',
   'ngRoute',
-  'sample.home',
-  'sample.login',
+  'owen.home',
+  'owen.chat',
+  'owen.login',
   'angular-storage',
   'angular-jwt'
 ])
@@ -13,6 +14,12 @@ angular.module( 'sample', [
       controller: 'HomeCtrl',
       templateUrl: 'home/home.html',
       pageTitle: 'Homepage',
+      requiresLogin: true
+    })
+    .when('/chat', {
+      controller: 'ChatCtrl',
+      templateUrl: 'chat/chat.html',
+      pageTitle: 'Chat',
       requiresLogin: true
     })
     .when( '/login', {
@@ -54,7 +61,7 @@ angular.module( 'sample', [
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
   $scope.$on('$routeChangeSuccess', function(e, nextRoute){
     if ( nextRoute.$$route && angular.isDefined( nextRoute.$$route.pageTitle ) ) {
-      $scope.pageTitle = nextRoute.$$route.pageTitle + ' | Auth0 Sample' ;
+      $scope.pageTitle = nextRoute.$$route.pageTitle + ' | OwenJS' ;
     }
   });
 })
