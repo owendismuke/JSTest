@@ -6,7 +6,7 @@ angular.module( 'owen.chat', [
   var message = fb.child("messages");
   $scope.auth = auth;
   $scope.chat = {
-    input: ""
+    input: "",
     submit: function(){
       message.push({user: auth.profile.name, timestamp: new Date(), message: this.input});
     }
