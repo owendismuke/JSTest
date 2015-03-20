@@ -19,6 +19,7 @@ angular.module( 'owen.chat', [
   });
 
   function displayMessage(name, text) {
+    //This won't work because no jQuery. Change to plain js or angular.
         $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messages'));
         $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
       };
