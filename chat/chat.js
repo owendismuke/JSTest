@@ -8,19 +8,18 @@ angular.module( 'owen.chat', [
   $scope.chat = {
     input: "",
     submit: function(){
-      var now = new Date();
-      message.push({user: auth.profile.name, timestamp: now, message: this.input});
+      message.push({user: auth.profile.name, message: this.input, email: auth.profile.email || "No email provided."});
     }
   };
 
   //Currently copied directly from Firebase tutorial
   message.on('child_added', function(snapshot){
     var message = snapshot.val();
-    displayMessage(message.timestamp, message.name, message.text);
+    displayMessage(message.name, message.text);
   });
 
-  function displayMessage(time, name, text) {
-        $('<div/>').text(text).prepend($('<em/>').text(time+'- '+name+': ')).appendTo($('#messages'));
+  function displayMessage(name, text) {
+        $('<div/>').text(text).prepend($('<em/>').text(name+': ')).appendTo($('#messages'));
         $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
       };
 
