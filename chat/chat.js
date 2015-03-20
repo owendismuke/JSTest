@@ -1,4 +1,6 @@
-angular.module( 'owen.chat')
+angular.module( 'owen.chat', [
+  'auth0'
+])
 .controller( 'ChatCtrl', function HomeController( $scope, auth, $http, $location, store ) {
   var fb = new Firebase('https://sweltering-heat-7411.firebaseio.com/web/chat'),
       message = fb.child("messages");
