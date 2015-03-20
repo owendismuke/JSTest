@@ -1,6 +1,4 @@
-angular.module( 'owen.login', [
-  'auth0'
-])
+angular.module( 'owen.login')
 .controller( 'LoginCtrl', function HomeController( $scope, auth, $location, store ) {
 
   $scope.login = function() {
