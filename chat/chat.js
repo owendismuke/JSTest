@@ -7,11 +7,9 @@ angular.module( 'owen.chat', [
   $scope.auth = auth;
   $scope.chat = {
     input: "",
-    time: function(){
-      return new Date();
-    },
     submit: function(){
-      message.push({user: auth.profile.name, timestamp: this.time(), message: this.input});
+      var now = new Date();
+      message.push({user: auth.profile.name, timestamp: now, message: this.input});
     }
   };
 
