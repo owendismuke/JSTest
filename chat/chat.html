@@ -1,46 +1,6 @@
 <div class="chat">
   <!--<h1 id="logo"><img src="/home/auth0_logo_final_blue_RGB.png" /></h1>-->
-  <h2>Welcome {{auth.profile.name}}</h2>
+  <h2>Welcome {{auth.profile.nickname}}</h2>
   <!--<button class="btn btn-lg btn-primary" ng-click="callApi()">Call API</button> <br />-->
   <button class="btn-sm btn-warning" ng-click="logout()">Logout</button>
-  <p>
-  	This is a basic chat page using Firebase for chat and presence behind the Angular.
-  </p>
-  <div class="row">
-  	<div class="col-xs-12 col-sm-6 col-md-8">
-  		<div class="row">
-  			<div class="col-xs-12">
-  				<div class="panel panel-default">
-  					<div id="messages" class="panel-body">
-  						
-  					</div>
-  					<div class="panel-footer">
-  						<div class="input-group input-group-sm">
-		  				<input type="text" class="form-control" ng-model="chat.input" name="input" placeholder="Enter your message">
-		  				<span class="input-group-btn">
-		  					<button class="btn btn-default" type="button" ng-click="chat.submit()" id="SubmitText">Send!</button>
-		  				</span>
-		  		</div>
-  					</div>
-  				</div>
-  			</div>
-  		</div>
-  		<div class="row">
-  			<div class="col-xs-12">
-		  		<div class="input-group input-group-sm">
-		  				<input type="text" class="form-control" ng-model="chat.input" name="input" placeholder="Enter your message">
-		  				<span class="input-group-btn">
-		  					<button class="btn btn-default" type="button" ng-click="chat.submit()" id="SubmitText">Send!</button>
-		  				</span>
-		  		</div>
-  			</div>
-  		</div>
-  	</div>
-  	<div class="col-xs-6 col-md-4">
-  		<div class="well well-sm">
-  			TODO: Users by presence.
-  		</div>
-  	</div>
-  </div>
-
 </div>
