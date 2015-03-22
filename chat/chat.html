@@ -20,7 +20,7 @@
   					</div>
   					<div class="panel-footer">
   						<div class="input-group input-group-sm">
-		  				<input type="text" class="form-control" ng-model="chat.input" name="input" placeholder="Enter your message">
+		  				<input type="text" class="form-control" ng-model="chat.input" name="input" placeholder="Enter your message" ng-keyup="chat.keyup($event.keycode)">
 		  				<span class="input-group-btn">
 		  					<button class="btn btn-default" type="button" ng-click="chat.submit()" id="SubmitText">Send!</button>
 		  				</span>

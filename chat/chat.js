@@ -8,8 +8,15 @@ angular.module( 'owen.chat', [
   $scope.chat = {
     input: "",
     submit: function(){
-      message.push({user: auth.profile.name, message: this.input, email: auth.profile.email || "No email provided."});
-      this.input = "";
+      if(this.input){
+        message.push({user: auth.profile.name, message: this.input, email: auth.profile.email || "No email provided."});
+        this.input = "";
+      }
+    },
+    keyup: function(key){
+      if(key === 13){
+        this.submit();
+      }
     }
   };
   $scope.data = {
