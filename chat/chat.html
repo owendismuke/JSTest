@@ -1,5 +1,6 @@
 <div class="chat">
   <div class="row">
+  <!-- TODO: Pull the welcome, nav, and logout to the layout page. -->
   <span class="pull-right">Welcome {{auth.profile.name}} <button class="btn-sm btn-warning" ng-click="logout()">Logout</button></span>
 </div>
 	<div class="row">
@@ -13,7 +14,9 @@
   			<div class="col-xs-12">
   				<div class="panel panel-default">
   					<div class="panel-body">
-  						<div id="messages"></div>
+  						<ul>
+                <li ng-repeat="message in data.messages">{{message}}</li>      
+              </ul>
   					</div>
   					<div class="panel-footer">
   						<div class="input-group input-group-sm">
