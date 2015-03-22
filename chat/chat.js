@@ -19,7 +19,7 @@ angular.module( 'owen.chat', [
   
   message.on('child_added', function(snapshot){
     var message = snapshot.val();
-    $scope.data.messages.push(message.name + ': ' + message.text)
+    $scope.data.messages.push(message.user + ': ' + message.message)
   });
 
   $scope.logout = function() {
