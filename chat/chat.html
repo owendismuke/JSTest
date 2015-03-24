@@ -1,21 +1,11 @@
 <div class="chat">
   <div class="row">
-  <!-- TODO: Pull the welcome, nav, and logout to the layout page. -->
-  <span class="pull-right">Welcome {{auth.profile.name}} <button class="btn-sm btn-warning" ng-click="logout()">Logout</button></span>
-</div>
-	<div class="row">
-	  	<span>
-	  	This is a basic chat page using Firebase for chat and presence behind the Angular.
-	  </span>
-	</div>
-  <div class="row">
   	<div class="col-xs-12 col-sm-6 col-md-8">
   		<div class="row">
   			<div class="col-xs-12">
   				<div class="panel panel-default">
   					<div class="panel-body">
             <div class="row" ng-repeat="message in data.messages track by $index">
-              <i ng-if="!message.picture" class="fa fa-user fa-3x"></i>
               <img ng-if="message.picture" class="img-rounded" ng-src="message.picture">
               <span><b>{{message.user}}</b><br/>{{message.text}}</span>
             </div>

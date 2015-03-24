@@ -11,7 +11,7 @@ angular.module( 'owen.chat', [
     input: "",
     submit: function(){
       if(this.input){
-        message.push({user: auth.profile.name, message: this.input, email: auth.profile.email || "No email provided.", picture: auth.picture});
+        message.push({user: auth.profile.name, message: this.input, email: auth.profile.email || "No email provided.", picture: auth.profile.picture || 0});
         this.input = "";
       }
     },
@@ -29,11 +29,4 @@ angular.module( 'owen.chat', [
     var message = snapshot.val();
     $scope.data.messages.push(message);
   });
-
-  $scope.logout = function() {
-    auth.signout();
-    store.remove('profile');
-    store.remove('token');
-    $location.path('/login');
-  }
 });
