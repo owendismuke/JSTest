@@ -7,6 +7,7 @@ angular.module( 'owen', [
   'angular-storage',
   'angular-jwt'
 ])
+.constant('baseHref', '/index.html')
 .config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
   jwtInterceptorProvider) {
   $routeProvider
@@ -43,7 +44,7 @@ angular.module( 'owen', [
   // NOTE: in case you are calling APIs which expect a token signed with a different secret, you might
   // want to check the delegation-token example
   $httpProvider.interceptors.push('jwtInterceptor');
-  $locationProvider.html5Mode(true).hashPrefix('!').requireBase(false);
+  $locationProvider.html5Mode(true).hashPrefix('!');
 }).run(function($rootScope, auth, store, jwtHelper, $location) {
   $rootScope.$on('$locationChangeStart', function() {
     if (!auth.isAuthenticated) {
