@@ -13,7 +13,7 @@ angular.module( 'owen', [
     .when( '/', {
       controller: 'HomeCtrl',
       templateUrl: 'home/home.html',
-      pageTitle: 'Homepage',
+      pageTitle: 'Home',
       requiresLogin: true
     })
     .when('/chat', {
@@ -43,6 +43,7 @@ angular.module( 'owen', [
   // NOTE: in case you are calling APIs which expect a token signed with a different secret, you might
   // want to check the delegation-token example
   $httpProvider.interceptors.push('jwtInterceptor');
+  $locationProvider.html5Mode(true).hashPrefix('!');
 }).run(function($rootScope, auth, store, jwtHelper, $location) {
   $rootScope.$on('$locationChangeStart', function() {
     if (!auth.isAuthenticated) {
@@ -55,16 +56,22 @@ angular.module( 'owen', [
         }
       }
     }
-
   });
 })
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
+.controller( 'AppCtrl', function AppCtrl ( $scope, $location, auth ) {
+  $scope.auth = auth;
   $scope.$on('$routeChangeSuccess', function(e, nextRoute){
     if ( nextRoute.$$route && angular.isDefined( nextRoute.$$route.pageTitle ) ) {
       $scope.pageTitle = nextRoute.$$route.pageTitle + ' | OwenJS' ;
     }
   });
-})
 
-;
 
+  $scope.logout = function() {
+    auth.signout();
+    store.remove('profile');
+    store.remove('token');
+    $location.path('/login');
+  };
+
+});

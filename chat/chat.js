@@ -4,12 +4,14 @@ angular.module( 'owen.chat', [
 .controller( 'ChatCtrl', function HomeController( $scope, auth, $http, $location, store ) {
   var fb = new Firebase('https://sweltering-heat-7411.firebaseio.com/web/chat');
   var message = fb.child("messages");
+  var last15messages = message.limit(15);
+  var presence = fb.child("users");
   $scope.auth = auth;
   $scope.chat = {
     input: "",
     submit: function(){
       if(this.input){
-        message.push({user: auth.profile.name, message: this.input, email: auth.profile.email || "No email provided."});
+        message.push({user: auth.profile.name, message: this.input, email: auth.profile.email || "No email provided.", picture: auth.picture});
         this.input = "";
       }
     },
@@ -23,10 +25,9 @@ angular.module( 'owen.chat', [
     messages: []
   };
 
-  
-  message.on('child_added', function(snapshot){
+  last15messages.on('child_added', function(snapshot){
     var message = snapshot.val();
-    $scope.data.messages.push(message.user + ': ' + message.message)
+    $scope.data.messages.push(message);
   });
 
   $scope.logout = function() {
