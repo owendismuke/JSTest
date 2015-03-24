@@ -60,7 +60,7 @@ angular.module( 'owen', [
 })
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location, auth, store ) {
   $scope.auth = auth;
-  $scope.app;
+  $scope.app = {};
   $scope.$on('$routeChangeSuccess', function(e, nextRoute){
     if ( nextRoute.$$route && angular.isDefined( nextRoute.$$route.pageTitle ) ) {
       $scope.pageTitle = nextRoute.$$route.pageTitle + ' | OwenJS' ;
