@@ -10,7 +10,7 @@ angular.module( 'owen.chat', [
     input: "",
     submit: function(){
       if(this.input){
-        message.push({
+        messages.push({
           user: auth.profile.name, 
           message: this.input, 
           email: auth.profile.email || "No email provided.", 
