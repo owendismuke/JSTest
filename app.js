@@ -7,7 +7,6 @@ angular.module( 'owen', [
   'angular-storage',
   'angular-jwt'
 ])
-.constant('baseHref', '/index.html')
 .config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
   jwtInterceptorProvider) {
   $routeProvider
