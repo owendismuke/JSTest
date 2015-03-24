@@ -58,7 +58,7 @@ angular.module( 'owen', [
     }
   });
 })
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location, auth ) {
+.controller( 'AppCtrl', function AppCtrl ( $scope, $location, auth, store ) {
   $scope.auth = auth;
   $scope.$on('$routeChangeSuccess', function(e, nextRoute){
     if ( nextRoute.$$route && angular.isDefined( nextRoute.$$route.pageTitle ) ) {
