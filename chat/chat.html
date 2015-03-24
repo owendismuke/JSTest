@@ -6,7 +6,8 @@
   				<div class="panel panel-default">
   					<div class="panel-body">
             <div class="row" ng-repeat="message in data.messages track by $index">
-              <img ng-if="message.picture" class="img-rounded" ng-src="{{message.picture}}">
+              <i ng-if="!message.picture" class="fa fa-user fa-3x"></i>
+              <img ng-if="message.picture" class="img-rounded" ng-src="{{message.picture}}" height="50" width="50">
               <span><b>{{message.user}}</b><br/>{{message.message}}</span>
             </div>
   					</div>
