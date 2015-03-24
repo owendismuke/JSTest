@@ -33,7 +33,7 @@
     
   </head>
   <body>
-  <nav class="navbar navbar-default">
+  <nav ng-if="auth.isAuthenticated" class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
      <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -48,26 +48,17 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li ng-class="'active': $location.path() === '/'"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        <li  ng-class="'active': $location.path() === '/chat'"><a href="#chat">Chat</a></li>
+        <li ng-class="'active': ''"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li ng-class="'active': ''"><a href="#chat">Chat</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
+        <li><p class="navbar-text">Welcome, {{auth.profile.name}}</p></li>
+        <li><button class="btn btn-default navbar-btn" ng-click="logout()">Logout</button></li>
         <li></li>
       </ul>
-      <p class="navbar-text">Welcome, {{auth.profile.name}}</p>
-      <button class="btn btn-default navbar-btn" ng-click="logout()">Logout</button>
+      
+      
     </div><!-- /.navbar-collapse -->
   </div>
 </nav>
